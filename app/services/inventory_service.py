@@ -75,4 +75,46 @@ def search_product(keyword):
             return
         headers=["ID","Name","Price","Quantity"]
         print(tabulate(products,headers=headers,tablefmt="grid"))
+        
 '''
+def update_product(product_id, name=None, price=None, quantity=None):
+    conn = connect()
+    cursor = conn.cursor()
+
+    cursor.execute(
+        "SELECT name, price, quantity FROM products WHERE id=?",
+        (product_id,)
+    )
+
+    product = cursor.fetchone()
+
+    if not product:
+        print("Product not found.")
+        conn.close()
+        return
+    current_name, current_price, current_quantity = product
+
+    if price is not None and price < 0:
+        print("Price cannot be negative.")
+        conn.close()
+        return
+
+    if quantity is not None and quantity < 0:
+        print("Quantity cannot be negative.")
+        conn.close()
+        return
+
+    new_name = name if name is not None else current_name
+    new_price = price if price is not None else current_price
+    new_quantity = quantity if quantity is not None else current_quantity
+
+    cursor.execute("""
+        UPDATE products
+        SET name=?, price=?, quantity=?
+        WHERE id=?
+    """, (new_name, new_price, new_quantity, product_id))
+
+    conn.commit()
+    conn.close()
+
+    print(f"Product ID {product_id} updated successfully.")
