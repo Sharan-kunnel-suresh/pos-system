@@ -1,5 +1,5 @@
 from database.db import connect
-
+from utils.receipt import generate_receipt
 def sell_product(product_id,quantity):
   conn=connect()
   cursor=conn.cursor()
@@ -30,5 +30,6 @@ INSERT INTO sales(product_name,quantity,total)
   conn.commit()
   conn.close()
 
-  print(f"Sold{quantity} x {name}")
-  print(f"Total;${total:.2f}")
+  generate_receipt(name, quantity, price, total)
+
+  print(f"Sold {quantity} units of {name}. Total: ${total:.2f}. Remaining stock: {new_stock}")          

@@ -41,7 +41,7 @@ def main():
       name = input("Enter the new name of the product (or press Enter to keep current): ") or None
       price = input("Enter the new price of the product (or press Enter to keep current): ") or None
       quantity = input("Enter the new quantity of the product (or press Enter to keep current): ") or None
-      update_product(product_id, name if name is not None else None, float(price) if price is not None else None, int(quantity) if quantity is not None else None)
+      update_product(product_id, name, float(price) if price is not None else None , int(quantity) if quantity is not None else None)
     elif(choice=="7"):
       print("Exiting>>>")
       
