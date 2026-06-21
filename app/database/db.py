@@ -13,8 +13,9 @@ def create_tables():
     CREATE TABLE IF NOT EXISTS products (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         name TEXT NOT NULL,
-        price REAL NOT NULL,
+        price DECIMAL(20, 2) NOT NULL,
         quantity INTEGER NOT NULL
+            
     )
     """)
 
@@ -23,7 +24,8 @@ def create_tables():
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         product_name TEXT,
         quantity INTEGER,
-        total REAL
+        total REAL,
+        sale_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP
     )
     """)
 

@@ -3,14 +3,14 @@
             RECEIPT
 =================================
 
-Date: 2026-06-11 22:54:11
+Date: 2026-06-21 12:32:17
 
-Product: Coffee 
-Quantity: 5
-Unit Price: $5.00
+Product: 67 stickers
+Quantity: 30000
+Unit Price: $0.10
 
 ---------------------------------
-TOTAL: $25.00
+TOTAL: $3000.00
 ---------------------------------
 
 Thank you for your purchase!

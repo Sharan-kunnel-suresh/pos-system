@@ -20,7 +20,7 @@ Unit Price: ${unit_price:.2f}
 TOTAL: ${total:.2f}
 ---------------------------------
 
-Thank you for your purchase!
+Monarch Time Co.
 
 =================================
 """
