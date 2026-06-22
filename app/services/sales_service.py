@@ -54,3 +54,57 @@ def view_sales_history():
   
   headers = ["SALE ID ", "Product", "Quantity", "Total", "Date "]
   print(tabulate(sales, headers=headers, tablefmt="grid"))
+
+
+def revenue_dashboard():
+    conn = connect()
+    cursor = conn.cursor()
+
+    # Total revenue
+    cursor.execute("""
+        SELECT SUM(total)
+        FROM sales
+    """)
+    total_revenue = cursor.fetchone()[0]
+
+    # Total transactions
+    cursor.execute("""
+        SELECT COUNT(*)
+        FROM sales
+    """)
+    total_transactions = cursor.fetchone()[0]
+
+    # Total units sold
+    cursor.execute("""
+        SELECT SUM(quantity)
+        FROM sales
+    """)
+    total_units = cursor.fetchone()[0]
+
+    # Best selling product
+    cursor.execute("""
+        SELECT product_name,
+               SUM(quantity) as units_sold
+        FROM sales
+        GROUP BY product_name
+        ORDER BY units_sold DESC
+        LIMIT 1
+    """)
+
+    best_product = cursor.fetchone()
+
+    conn.close()
+
+    print("\n========== DASHBOARD ==========\n")
+
+    print(f"Total Revenue: ${total_revenue or 0:.2f}")
+    print(f"Total Transactions: {total_transactions}")
+    print(f"Total Units Sold: {total_units or 0}")
+
+    if best_product:
+        print("\nBest Selling Product:")
+        print(f"{best_product[0]} ({best_product[1]} units)")
+    else:
+        print("\nNo sales yet.")
+
+    print("\n===============================\n")

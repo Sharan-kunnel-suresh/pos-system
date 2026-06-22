@@ -3,16 +3,16 @@
             RECEIPT
 =================================
 
-Date: 2026-06-21 12:32:17
+Date: 2026-06-22 23:26:55
 
-Product: 67 stickers
-Quantity: 30000
-Unit Price: $0.10
+Product: Cartier Santos de Cartier Large
+Quantity: 1
+Unit Price: $13000.00
 
 ---------------------------------
-TOTAL: $3000.00
+TOTAL: $13000.00
 ---------------------------------
 
-Thank you for your purchase!
+Monarch Time Co.
 
 =================================

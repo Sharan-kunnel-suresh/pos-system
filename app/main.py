@@ -1,6 +1,6 @@
 from database.db import create_tables
 from services.inventory_service import add_product, restock_product, update_product, view_products, search_product
-from services.sales_service import sell_product, view_sales_history
+from services.sales_service import sell_product, view_sales_history, revenue_dashboard
      
 def menu():
   print("\n===POS SYSTEM MENU===")
@@ -11,7 +11,8 @@ def menu():
   print("5. Search Product")
   print("6. Update Product")
   print("7. View Sales History")
-  print("8. Exit")
+  print("8. Revenue Dashboard")
+  print("9. Exit")
 
 def main():
   create_tables()
@@ -46,6 +47,8 @@ def main():
     elif(choice=="7"):
       view_sales_history()
     elif(choice=="8"):
+      revenue_dashboard()
+    elif(choice=="9"):
       print("Exiting>>>")
       
       break
